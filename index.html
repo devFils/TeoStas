@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0c1c2c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="TeoStas">
+<title>TeoStas - Private Yacht Charters - Mykonos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0c1c2c;--gold:#c6a15b;--ivory:#f6f2e9;--ink:#20303c;--muted:#7d8b95;--card:#fff;--maxd:820px}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--ivory);line-height:1.6}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;letter-spacing:.3px}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+.top{position:sticky;top:0;z-index:20;background:rgba(12,28,44,.97);backdrop-filter:blur(8px);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:14px 18px;padding-top:calc(14px + env(safe-area-inset-top))}
+.logo{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:3px}
+.logo small{display:block;font-family:'Jost';font-size:8px;letter-spacing:3px;color:var(--gold);margin-top:1px;font-weight:400}
+.top .wa{color:var(--navy);background:var(--gold);border-radius:30px;padding:8px 14px;font-size:12px;letter-spacing:1px;font-weight:500;text-decoration:none}
+.hero{position:relative;color:#fff;text-align:center;padding:60px 20px 50px;background:linear-gradient(180deg,rgba(12,28,44,.5),rgba(12,28,44,.82)),url('https://framerusercontent.com/images/PvNKLa1qkYjH2JIQafnsG4bdHE.png') center/cover}
+.hero .eye{letter-spacing:5px;font-size:11px;color:var(--gold);text-transform:uppercase}
+.hero h1{font-size:clamp(34px,9vw,54px);line-height:1.05;margin-top:14px;font-weight:500}
+.hero p{color:#e6ddc9;font-style:italic;font-family:'Cormorant Garamond',serif;font-size:clamp(17px,4.5vw,22px);margin-top:10px}
+.controls{position:sticky;top:57px;z-index:15;background:var(--ivory);padding:14px 0 6px;border-bottom:1px solid rgba(12,28,44,.08)}
+.search{width:100%;padding:12px 16px;border:1px solid #dcd6c8;border-radius:30px;background:#fff;font-family:inherit;font-size:15px;color:var(--ink)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 2px 4px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{white-space:nowrap;border:1px solid #d3ccbb;background:#fff;color:var(--ink);padding:8px 15px;border-radius:30px;font-size:13px;cursor:pointer}
+.chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.count{font-size:12px;color:var(--muted);padding:6px 2px 0;letter-spacing:.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;padding:20px 0 40px}
+.card{background:var(--card);border:1px solid rgba(12,28,44,.07);border-radius:14px;overflow:hidden;cursor:pointer;box-shadow:0 6px 22px rgba(12,28,44,.06)}
+.card:active{transform:scale(.99)}
+.card .ph{position:relative;aspect-ratio:16/11;background:#e9e4d7}
+.card .badge{position:absolute;top:10px;left:10px;background:rgba(12,28,44,.85);color:var(--gold);font-size:11px;letter-spacing:1px;padding:5px 10px;border-radius:20px}
+.card .body{padding:14px 15px 16px}
+.card .type{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.card h3{font-size:23px;color:var(--navy);margin:2px 0 3px}
+.card .tg{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--muted);font-size:15px;margin-bottom:12px}
+.stats{display:flex;gap:14px;border-top:1px solid #eee6d5;padding-top:10px}
+.stat{flex:1;text-align:center}
+.stat .v{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--navy)}
+.stat .k{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.ov{position:fixed;inset:0;z-index:50;background:var(--ivory);overflow-y:auto;transform:translateY(100%);transition:transform .28s ease;visibility:hidden}
+.ov.on{transform:translateY(0);visibility:visible}
+.ov .close{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;background:rgba(12,28,44,.97);color:#fff;padding:14px 18px;padding-top:calc(14px + env(safe-area-inset-top))}
+.ov .close button{background:none;border:1px solid rgba(255,255,255,.5);color:#fff;border-radius:30px;padding:7px 14px;font-size:13px;cursor:pointer}
+.ovInner{max-width:var(--maxd);margin:0 auto}
+.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;background:#e9e4d7}
+.gal::-webkit-scrollbar{display:none}
+.gal .g{flex:0 0 100%;scroll-snap-align:center;aspect-ratio:16/10;max-height:58vh}
+.galdots{display:flex;justify-content:center;gap:6px;padding:10px 0 2px}
+.galdots i{width:6px;height:6px;border-radius:50%;background:#cdc4b0;display:block}
+.galdots i.on{background:var(--gold)}
+.dwrap{padding:22px 18px 130px}
+.dtype{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.dwrap h2{font-size:34px;color:var(--navy);margin:3px 0 2px}
+.dtag{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--muted);font-size:19px;margin-bottom:18px}
+.spectable{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e4ddcc;border:1px solid #e4ddcc;border-radius:10px;overflow:hidden;margin-bottom:22px}
+.sp{background:#fff;padding:12px 14px}
+.sp .k{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.sp .v{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--navy)}
+.desc{font-size:15.5px;color:#33424c;margin-bottom:20px}
+.inc h4{font-family:'Jost';font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.inc ul{list-style:none;margin-bottom:8px}
+.inc li{padding:7px 0 7px 24px;position:relative;font-size:14.5px;border-bottom:1px solid #ece5d4}
+.inc li:before{content:'\2713';position:absolute;left:0;color:var(--gold)}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;justify-content:center;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid #e4ddcc}
+.barInner{width:100%;max-width:var(--maxd);display:flex}
+.ov.on ~ .bar{display:flex}
+.bar .wa{flex:1;text-align:center;text-decoration:none;border-radius:30px;padding:15px;font-size:15px;letter-spacing:1px;font-weight:500;background:#25D366;color:#fff}
+footer{background:var(--navy);color:#8ea0ac;text-align:center;padding:40px 20px;font-size:12px;letter-spacing:1px}
+footer .fl{font-family:'Cormorant Garamond',serif;font-size:24px;letter-spacing:4px;color:var(--ivory);margin-bottom:6px}
+footer a{color:var(--gold);text-decoration:none}
+</style></head>
+<body>
+<header class="top">
+  <div class="logo" id="brandTop">TeoStas<small id="brandSubTop">PRIVATE YACHT CHARTERS - MYKONOS</small></div>
+  <a class="wa" id="topWa" href="#">WhatsApp</a>
+</header>
+<section class="hero">
+  <p class="eye">Private Charters - Mykonos &amp; the Cyclades</p>
+  <h1>The Fleet</h1>
+  <p>Curated crewed yachts for unforgettable days on the Aegean</p>
+</section>
+<div class="wrap">
+  <div class="controls">
+    <input class="search" id="search" placeholder="Search yachts..." autocomplete="off">
+    <div class="chips" id="chips">
+      <div class="chip on" data-f="all">All</div>
+      <div class="chip" data-f="big">Big groups (16+)</div>
+      <div class="chip" data-f="mid">Groups (10-15)</div>
+      <div class="chip" data-f="small">Intimate (10 &amp; under)</div>
+      <div class="chip" data-f="motor">Motor</div>
+      <div class="chip" data-f="sail">Sail</div>
+    </div>
+    <div class="count" id="count"></div>
+  </div>
+  <div class="grid" id="grid"></div>
+</div>
+<footer>
+  <div class="fl" id="brandFoot">TeoStas</div>
+  <div>Private Yacht Charters - Mykonos, Greece</div>
+  <div style="margin-top:8px" id="footContact"></div>
+</footer>
+<div class="ov" id="ov">
+  <div class="close"><span class="serif" style="font-size:19px;letter-spacing:2px" id="ovName">Yacht</span><button onclick="closeOv()">Close &times;</button></div>
+  <div class="ovInner">
+    <div class="gal" id="ovGal"></div>
+    <div class="galdots" id="ovDots"></div>
+    <div class="dwrap" id="ovBody"></div>
+  </div>
+</div>
+<div class="bar" id="bar"><div class="barInner"><a class="wa" id="barWa" href="#">Enquire on WhatsApp</a></div></div>
+<script>
+const BRAND    = "TeoStas";
+const SUBTITLE = "PRIVATE YACHT CHARTERS - MYKONOS";
+const WHATSAPP = "306970383475";
+const EMAIL    = "";
+const Y = [{"id": "superphantom-85", "name": "Superphantom 85", "type": "Motor Yacht", "tag": "Grand-scale luxury for 25", "len": "85 ft", "day": 25, "night": 8, "cabins": 4, "crew": 5, "baths": 4, "built": "2002", "refit": "2023", "desc": "Built by Italversil Cantiere Navale in Viareggio, Italy, the Super Phantom 85 epitomises luxury and comfort with expansive indoor and outdoor spaces. Four cabins, a stylish indoor bar, and a vast deck for sunbathing and gatherings, complemented by an outdoor jacuzzi (available with prior notice, EUR 700). Daily charters accommodate up to 25 guests.", "included": null, "imgs": ["https://framerusercontent.com/images/Odknh6NAhbwSub5kVFBo0cTlWt8.png", "https://framerusercontent.com/images/MaVL7JRVkfFWoKDhaPdhdgA9JM.png", "https://framerusercontent.com/images/jrRNFMVBCnAwolUYWIY1xljEMU.png", "https://framerusercontent.com/images/A3MYpp9T5SR2V7hIKB3f0Ex4K0.png"]}, {"id": "ferretti-58-64", "name": "Ferretti 58/64", "type": "Motor Yacht", "tag": "Speed meets sophistication", "len": "64 ft", "day": 24, "night": 6, "cabins": 3, "crew": 3, "baths": 3, "built": "1991", "refit": "2001", "desc": "A stylish fast motor yacht with interiors by Luigi Sturchio, offering three luxurious en-suite cabins. Spacious exterior decks, a flybridge with sunbeds, and a bow sunbed. Powered by twin MTU diesels, she cruises at 20 knots with a top speed near 32 knots. Up to 24 guests on daily charters.", "included": null, "imgs": ["https://framerusercontent.com/images/6fgiC6w24O0zryZqpk4oY1O5qY.jpg", "https://framerusercontent.com/images/ahMGH8aPk2yEJjVRvLnXXvDLjwI.jpg", "https://framerusercontent.com/images/m4nEnrDv9mO1Esxmk0cIbcxKM54.jpg", "https://framerusercontent.com/images/S5VNDX6xmHpcE990J2eRfB3SUw.jpg"]}, {"id": "ferretti-52", "name": "Ferretti 52", "type": "Motor Yacht", "tag": "Big groups, Italian craft", "len": "52 ft", "day": 22, "night": 6, "cabins": 3, "crew": 2, "baths": 2, "built": "1991", "refit": "2001", "desc": "Built by Ferretti Yachts in Italy, with a deep-V planing hull and teak-laid aft deck. Accommodates six guests in three cabins for multiday charters, and up to 22 guests on daily charters, with large indoor and outdoor areas for relaxing and socialising. Fuel consumption 180 lt/h at cruising speed.", "included": null, "imgs": ["https://framerusercontent.com/images/veXr2OVZAlxt9BhnLagm82mPafw.png", "https://framerusercontent.com/images/HvxBbqeZPh0FP3sG2xiDwEAnLDo.png", "https://framerusercontent.com/images/JiYKR4qbxMI5b5kVGNs4bYmcS2o.png", "https://framerusercontent.com/images/LYZLqfU4Wt4vqKwBTd8Wo2PRQQ.png"]}, {"id": "ferretti-62", "name": "M/Y Ferretti 62", "type": "Motor Yacht", "tag": "Flybridge views to Delos & Rhenia", "len": "62 ft", "day": 12, "night": 6, "cabins": 3, "crew": 3, "baths": 3, "built": "1991", "refit": "2025", "desc": "Explore the south coast of Mykonos and the islands of Delos and Rhenia in contemporary elegance. A spacious deck for sunbathing and alfresco dining, plus a flybridge with panoramic views, sun loungers and comfortable seating for entertaining.", "included": null, "imgs": ["https://framerusercontent.com/images/JOToxQC1w69tOPMw4gMsVZVTDjE.png", "https://framerusercontent.com/images/8Q1F7hgcMzEXKkqx1lmv6G4Kio.png", "https://framerusercontent.com/images/z96HbIyZzQ6ctmTei98xw29ErCA.png", "https://framerusercontent.com/images/j0utnT6HIFWDlM2dPuWFhX7Qqjo.png"]}, {"id": "azimut-58", "name": "Azimut 58", "type": "Motor Yacht - Flybridge", "tag": "Italian flybridge elegance", "len": "58 ft", "day": 12, "night": 6, "cabins": 3, "crew": 3, "baths": 3, "built": "2003", "refit": "2023", "desc": "A full-style Italian flybridge cruiser from the world's largest manufacturer. Slender, elegant lines and a huge, comfortable salon make her ideal for both daily and multiday charters. Up to six guests in three double cabins with en-suite facilities, roomy cabins and spacious sundecks.", "included": null, "imgs": ["https://framerusercontent.com/images/fWtQfgdpSfGQvQXZa5RaOF5TQ8c.png", "https://framerusercontent.com/images/UVw6XOuzYC1IfjHnigDndHx6h8.png", "https://framerusercontent.com/images/wy3TCOpk6gVAcDwRPXgGbiqb454.png", "https://framerusercontent.com/images/CPlRBSuWuwyqTettsFYeKq63Og.png"]}, {"id": "pershing-54", "name": "Pershing 54", "type": "Motor Yacht", "tag": "Sporty style & elite cruising", "len": "54 ft", "day": 10, "night": 4, "cabins": 2, "crew": 2, "baths": 2, "built": "2002", "refit": "2022", "desc": "A Pershing performance cruiser where signature Italian design merges elegance with bold engineering. A sleek silver hull, minimalist interior, twin high-performance engines, an expansive sunpad, ergonomic cockpit and integrated aft platform for seamless sea access.", "included": ["Gourmet refreshments - local snacks, cheese platter, Greek olives, cured meats, fresh fruit", "Wine, beer & non-alcoholic beverages", "Luxury bath products & fresh towels", "Dedicated crew", "VAT included"], "imgs": ["https://framerusercontent.com/images/eh7kSjtmU5SNpYQZ1fel4Gy46lU.png", "https://framerusercontent.com/images/MX0ocIzxxVCeOhS9JIDDTEH0NY.png", "https://framerusercontent.com/images/qtMmLI0okROC73nbWyPdQSDXHw.png", "https://framerusercontent.com/images/DaKlp9HkTBsa4lA3oK3aaaLTE.png"]}, {"id": "princess-v52", "name": "Princess V52", "type": "Motor Yacht", "tag": "Timeless all-inclusive cruising", "len": "52 ft", "day": 8, "night": 6, "cabins": 3, "crew": 2, "baths": 2, "built": "1997", "refit": "2022", "desc": "The original Princess V-class - elegance, practicality and style. Three well-appointed cabins for up to six guests, two high-performance engines and a smooth ride (170 lt/h at cruising speed). A fully all-inclusive daily charter package.", "included": ["Gourmet refreshments - local snacks, cheese platter, Greek olives, cured meats, fresh fruit", "Wine, beer & non-alcoholic beverages", "Luxury bath products & fresh towels", "Dedicated crew", "VAT included"], "imgs": ["https://framerusercontent.com/images/ExwMNPB9Uqq0brIeEJM3zgxgRH8.png", "https://framerusercontent.com/images/i14ea3vAvyS3qpLC8rtj3dRQxWg.png", "https://framerusercontent.com/images/69gATMnnxWow8CMaZ2PAHtIMUg.png", "https://framerusercontent.com/images/6ReqdiDWqHqsUURx84kkLwok.png"]}, {"id": "o-yacht", "name": "O Yacht - Omikron OT60", "type": "Motorsailer", "tag": "2024 sail-motor innovation", "len": "60 ft", "day": 16, "night": 8, "cabins": 4, "crew": 2, "baths": 3, "built": "2024", "refit": "-", "desc": "State-of-the-art design and modern elegance, built in 2024 to blend the tranquillity of sailing with the comfort of motor boating. Smooth cruising at 10-12 knots, four spacious cabins and three bathrooms for up to eight guests. A fully all-inclusive daily package.", "included": ["Gourmet refreshments - local snacks, cheese platter, Greek olives, cured meats, fresh fruit", "Wine, beer & non-alcoholic beverages", "High-quality bath products & fresh towels", "Dedicated crew", "VAT included"], "imgs": ["https://framerusercontent.com/images/r6GDxaCTEhYYz7aDS1xsFHxR0v4.png", "https://framerusercontent.com/images/i74QqpHRr8hN4kssU9y8jVrKQVg.png", "https://framerusercontent.com/images/I09vLE3t8QKzUrw7xHVcUm2MQOA.png", "https://framerusercontent.com/images/TRiDVpS3ihcTldWDLg6GyUJZV4g.png"]}, {"id": "korina", "name": "Korina - Majesty 50", "type": "Motor Yacht", "tag": "Majesty comfort", "len": "50 ft", "day": 12, "night": 6, "cabins": 3, "crew": 2, "baths": 2, "built": "2014", "refit": "2023", "desc": "A Majesty 50 motor yacht based in Mykonos Ornos - three guest cabins for up to six guests overnight and up to twelve on daily charters. Refitted in 2023.", "included": null, "imgs": ["https://framerusercontent.com/images/IzPl19wQwLROOVeLMM5XMvwks.png", "https://framerusercontent.com/images/JUL3FEl2QD5J8ou43dyWD0nneQ.png", "https://framerusercontent.com/images/gLJhNm4uFEachC3JnLlTi3vHV7M.png", "https://framerusercontent.com/images/AQ4ed23Jp0KL1f2avcJuqtfcmg.png"]}, {"id": "fairline-phantom", "name": "Fairline Phantom", "type": "Motor Yacht", "tag": "30+ knot deep-V thrills", "len": "43 ft", "day": 10, "night": 4, "cabins": 2, "crew": 2, "baths": 2, "built": "2008", "refit": "2023", "desc": "One of the most successful models ever built, with a sure-footed ride from her Deep-V Bernard Olesinski hull. Twin Caterpillar 426hp diesels give a top speed over 30 knots and a comfortable 22-knot cruise (150 lt/h). A cosy, practical day-charter experience.", "included": null, "imgs": ["https://framerusercontent.com/images/SMWHYASgTxAqAyl8ayGRbMZrsTY.png", "https://framerusercontent.com/images/uVo61kDOTtYpeJwKnIcAE9qy0.png", "https://framerusercontent.com/images/fjeMJOVvzTvwgp3UnACABvDmGrc.png", "https://framerusercontent.com/images/xIwuWs60NQ3QLktpt4ajqMqIGpE.png"]}, {"id": "queen-iii", "name": "M/Y Queen III", "type": "Motor Yacht", "tag": "Intimate day cruising", "len": "43 ft", "day": 10, "night": null, "cabins": 2, "crew": 2, "baths": 2, "built": "2006", "refit": "2022", "desc": "A Rodman 43 motor yacht based in Mykonos Ornos for intimate daily cruising of up to ten guests. Refitted in 2022.", "included": null, "imgs": ["https://framerusercontent.com/images/YC3WGu0rxRRK1QPjT8ywqvHdvVA.png", "https://framerusercontent.com/images/6QEDR0tsHxugHnYSBxUNdX0OLNo.png", "https://framerusercontent.com/images/rb5Hsx4724tVoHtzXKRqFbLfI.png", "https://framerusercontent.com/images/pHogHrupbyngC1pkp69kteMgeQ.png"]}];
+document.getElementById('brandTop').childNodes[0].nodeValue = BRAND;
+document.getElementById('brandSubTop').textContent = SUBTITLE;
+document.getElementById('brandFoot').textContent = BRAND;
+const waLink = (t)=> "https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(t);
+document.getElementById('topWa').href = waLink("Hi "+BRAND+", I'd like to ask about a private yacht charter in Mykonos.");
+document.getElementById('footContact').innerHTML = 'Enquiries: <a href="'+waLink("Hi "+BRAND+", I'd like to ask about a private yacht charter.")+'">WhatsApp</a>' + (EMAIL ? ' - <a href="mailto:'+EMAIL+'">Email</a>' : '');
+let filter='all', q='';
+const grid=document.getElementById('grid'), count=document.getElementById('count');
+function matches(y){
+  if(q && !(y.name+' '+y.type+' '+y.tag).toLowerCase().includes(q)) return false;
+  if(filter==='all') return true;
+  if(filter==='big') return y.day>=16;
+  if(filter==='mid') return y.day>=10 && y.day<=15;
+  if(filter==='small') return y.day<=10;
+  if(filter==='motor') return /motor/i.test(y.type);
+  if(filter==='sail') return /sail/i.test(y.type);
+  return true;
+}
+function render(){
+  const list=Y.filter(matches);
+  count.textContent=list.length+" yachts";
+  grid.innerHTML=list.map(y=>'<div class="card" onclick="openOv(\''+y.id+'\')"><div class="ph"><img loading="lazy" src="'+y.imgs[0]+'?width=760" alt="'+y.name+'"><div class="badge">Up to '+y.day+' guests</div></div><div class="body"><div class="type">'+y.type+'</div><h3>'+y.name+'</h3><div class="tg">'+y.tag+'</div><div class="stats"><div class="stat"><div class="v">'+y.len+'</div><div class="k">Length</div></div><div class="stat"><div class="v">'+y.day+'</div><div class="k">Guests</div></div><div class="stat"><div class="v">'+(y.cabins||'-')+'</div><div class="k">Cabins</div></div></div></div></div>').join('');
+}
+document.getElementById('search').addEventListener('input',e=>{q=e.target.value.toLowerCase().trim();render();});
+document.getElementById('chips').addEventListener('click',e=>{
+  const c=e.target.closest('.chip'); if(!c)return;
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
+  c.classList.add('on'); filter=c.dataset.f; render();
+});
+const gal=document.getElementById('ovGal'), dots=document.getElementById('ovDots');
+function openOv(id){
+  const y=Y.find(v=>v.id===id); if(!y)return;
+  document.getElementById('ovName').textContent=y.name;
+  gal.innerHTML=y.imgs.map(s=>'<div class="g"><img src="'+s+'?width=1200" alt="'+y.name+'"></div>').join('');
+  dots.innerHTML=y.imgs.map((_,i)=>'<i class="'+(i===0?'on':'')+'"></i>').join('');
+  gal.scrollLeft=0;
+  const rows=[['Type',y.type],['Length',y.len],['Guests (day)','Up to '+y.day]];
+  if(y.night) rows.push(['Guests (overnight)',y.night]);
+  rows.push(['Cabins',y.cabins||'-'],['Crew',y.crew||'-'],['Baths',y.baths||'-'],['Built / Refit',y.built+(y.refit&&y.refit!=='-'?' / '+y.refit:'')],['Base','Mykonos, Ornos']);
+  const sp=rows.map(r=>'<div class="sp"><div class="k">'+r[0]+'</div><div class="v">'+r[1]+'</div></div>').join('');
+  const inc = y.included ? '<div class="inc"><h4>Included in daily charter</h4><ul>'+y.included.map(i=>'<li>'+i+'</li>').join('')+'</ul></div>' : '<div class="inc"><h4>Included</h4><ul><li>Crewed charter with dedicated crew</li><li>VAT included</li><li>Refreshments & beverages (confirm per charter)</li></ul></div>';
+  document.getElementById('ovBody').innerHTML='<div class="dtype">'+y.type+'</div><h2>'+y.name+'</h2><div class="dtag">'+y.tag+'</div><div class="spectable">'+sp+'</div><p class="desc">'+y.desc+'</p>'+inc;
+  document.getElementById('barWa').href=waLink("Hi "+BRAND+", I'm interested in chartering the "+y.name+" (up to "+y.day+" guests) in Mykonos. Could you send me availability and pricing?");
+  document.getElementById('ov').classList.add('on');
+  document.getElementById('ov').scrollTop=0; document.body.style.overflow='hidden';
+}
+gal.addEventListener('scroll',()=>{
+  const i=Math.round(gal.scrollLeft/gal.clientWidth);
+  dots.querySelectorAll('i').forEach((d,j)=>d.classList.toggle('on',j===i));
+});
+function closeOv(){document.getElementById('ov').classList.remove('on');document.body.style.overflow='';}
+render();
+</script>
+</body></html>
